@@ -35,15 +35,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
  15 .debug_ranges 00000540  00000000  00000000  00026d88  2**3
                   CONTENTS, READONLY, DEBUGGING
- 16 .debug_macro  0001470d  00000000  00000000  000272c8  2**0
+ 16 .debug_macro  00014701  00000000  00000000  000272c8  2**0
                   CONTENTS, READONLY, DEBUGGING
- 17 .debug_line   00004f68  00000000  00000000  0003b9d5  2**0
+ 17 .debug_line   00004f68  00000000  00000000  0003b9c9  2**0
                   CONTENTS, READONLY, DEBUGGING
- 18 .debug_str    00080e6d  00000000  00000000  0004093d  2**0
+ 18 .debug_str    00080e46  00000000  00000000  00040931  2**0
                   CONTENTS, READONLY, DEBUGGING
- 19 .comment      0000007b  00000000  00000000  000c17aa  2**0
+ 19 .comment      0000007b  00000000  00000000  000c1777  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  000016bc  00000000  00000000  000c1828  2**2
+ 20 .debug_frame  000016bc  00000000  00000000  000c17f4  2**2
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -445,24 +445,24 @@ int main(void)
  800053c:	7bfb      	ldrb	r3, [r7, #15]
  800053e:	2b01      	cmp	r3, #1
  8000540:	d104      	bne.n	800054c <main+0x74>
-					a=2;
- 8000542:	2302      	movs	r3, #2
- 8000544:	73fb      	strb	r3, [r7, #15]
 					LED1_HalfPeriod = 250;
- 8000546:	23fa      	movs	r3, #250	; 0xfa
- 8000548:	82fb      	strh	r3, [r7, #22]
+ 8000542:	23fa      	movs	r3, #250	; 0xfa
+ 8000544:	82fb      	strh	r3, [r7, #22]
+					a=2;
+ 8000546:	2302      	movs	r3, #2
+ 8000548:	73fb      	strb	r3, [r7, #15]
  800054a:	e00c      	b.n	8000566 <main+0x8e>
 				}
 				else if (a==2) {
  800054c:	7bfb      	ldrb	r3, [r7, #15]
  800054e:	2b02      	cmp	r3, #2
  8000550:	d104      	bne.n	800055c <main+0x84>
+					LED1_HalfPeriod = 166.67;
+ 8000552:	23a6      	movs	r3, #166	; 0xa6
+ 8000554:	82fb      	strh	r3, [r7, #22]
 					a=3;
- 8000552:	2303      	movs	r3, #3
- 8000554:	73fb      	strb	r3, [r7, #15]
-					LED1_HalfPeriod = 125;
- 8000556:	237d      	movs	r3, #125	; 0x7d
- 8000558:	82fb      	strh	r3, [r7, #22]
+ 8000556:	2303      	movs	r3, #3
+ 8000558:	73fb      	strb	r3, [r7, #15]
  800055a:	e004      	b.n	8000566 <main+0x8e>
 				} else {
 					LED1_HalfPeriod = 1000;
