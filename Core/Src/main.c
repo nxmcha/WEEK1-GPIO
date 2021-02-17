@@ -99,9 +99,7 @@ int main(void) {
 	uint32_t ButtonTimeStamp = 0;
 	uint8_t a = 0;
 	uint8_t b = 0;
-	uint8_t c = 0;
 	uint8_t d = 0;
-	uint8_t e = 0;
 	/* USER CODE END 2 */
 
 	/* Infinite loop */
