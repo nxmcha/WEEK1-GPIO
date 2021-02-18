@@ -154,33 +154,34 @@ int main(void) {
 			SwitchState3[1] = SwitchState3[0];
 		}
 
-			if (HAL_GetTick() - TimeStamp >= LED1_HalfPeriod) {
-				TimeStamp = HAL_GetTick();
-				//Toggle LED1
-				if (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_9) == GPIO_PIN_SET) {
-					HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, GPIO_PIN_RESET);
-				} else {
-					HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, GPIO_PIN_SET);
-				}
-
-				if (d == 0) {
-			if ((HAL_GetTick() - TimeStamp11 >= LED3_QuadPeriod)
-					&& (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_6) == GPIO_PIN_RESET)) {
-				TimeStamp11 = HAL_GetTick();
-				//Toggle LED1
-				HAL_GPIO_WritePin(GPIOB, GPIO_PIN_6, GPIO_PIN_SET);
-
+		if (HAL_GetTick() - TimeStamp >= LED1_HalfPeriod) {
+			TimeStamp = HAL_GetTick();
+			//Toggle LED1
+			if (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_9) == GPIO_PIN_SET) {
+				HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, GPIO_PIN_RESET);
+			} else {
+				HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, GPIO_PIN_SET);
 			}
 
-			if ((HAL_GetTick() - TimeStamp11 >= LED3_ThreeQuadPeriod)
-					&& (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_6) == GPIO_PIN_SET)) {
-				TimeStamp11 = HAL_GetTick();
-				//Toggle LED1
+			if (d == 0) {
+				if ((HAL_GetTick() - TimeStamp11 >= LED3_QuadPeriod)
+						&& (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_6)
+								== GPIO_PIN_RESET)) {
+					TimeStamp11 = HAL_GetTick();
+					//Toggle LED1
+					HAL_GPIO_WritePin(GPIOB, GPIO_PIN_6, GPIO_PIN_SET);
 
-				HAL_GPIO_WritePin(GPIOB, GPIO_PIN_6, GPIO_PIN_RESET);
-
-			}
 				}
+
+				if ((HAL_GetTick() - TimeStamp11 >= LED3_ThreeQuadPeriod)
+						&& (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_6) == GPIO_PIN_SET)) {
+					TimeStamp11 = HAL_GetTick();
+					//Toggle LED1
+
+					HAL_GPIO_WritePin(GPIOB, GPIO_PIN_6, GPIO_PIN_RESET);
+
+				}
+			}
 		}
 		if (d == 1) {
 
