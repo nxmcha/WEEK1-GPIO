@@ -112,6 +112,7 @@ int main(void) {
 		//switch press is LOW
 		if (HAL_GetTick() - ButtonTimeStamp >= 50) //ms
 				{
+			ButtonTimeStamp = HAL_GetTick();
 			SwitchState[0] = HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_10);
 			if (SwitchState[1] == GPIO_PIN_SET
 					&& SwitchState[0] == GPIO_PIN_RESET) {
