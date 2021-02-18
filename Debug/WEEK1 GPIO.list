@@ -560,44 +560,44 @@ int main(void) {
  80005e6:	783b      	ldrb	r3, [r7, #0]
  80005e8:	707b      	strb	r3, [r7, #1]
 		}
-		if (d == 0) {
- 80005ea:	7d7b      	ldrb	r3, [r7, #21]
- 80005ec:	2b00      	cmp	r3, #0
- 80005ee:	d14d      	bne.n	800068c <main+0x1b4>
+
 			if (HAL_GetTick() - TimeStamp >= LED1_HalfPeriod) {
- 80005f0:	f000 fb12 	bl	8000c18 <HAL_GetTick>
- 80005f4:	4602      	mov	r2, r0
- 80005f6:	6a3b      	ldr	r3, [r7, #32]
- 80005f8:	1ad2      	subs	r2, r2, r3
- 80005fa:	8cfb      	ldrh	r3, [r7, #38]	; 0x26
- 80005fc:	429a      	cmp	r2, r3
- 80005fe:	d317      	bcc.n	8000630 <main+0x158>
+ 80005ea:	f000 fb15 	bl	8000c18 <HAL_GetTick>
+ 80005ee:	4602      	mov	r2, r0
+ 80005f0:	6a3b      	ldr	r3, [r7, #32]
+ 80005f2:	1ad2      	subs	r2, r2, r3
+ 80005f4:	8cfb      	ldrh	r3, [r7, #38]	; 0x26
+ 80005f6:	429a      	cmp	r2, r3
+ 80005f8:	d348      	bcc.n	800068c <main+0x1b4>
 				TimeStamp = HAL_GetTick();
- 8000600:	f000 fb0a 	bl	8000c18 <HAL_GetTick>
- 8000604:	6238      	str	r0, [r7, #32]
+ 80005fa:	f000 fb0d 	bl	8000c18 <HAL_GetTick>
+ 80005fe:	6238      	str	r0, [r7, #32]
 				//Toggle LED1
 				if (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_9) == GPIO_PIN_SET) {
- 8000606:	f44f 7100 	mov.w	r1, #512	; 0x200
- 800060a:	483b      	ldr	r0, [pc, #236]	; (80006f8 <main+0x220>)
- 800060c:	f000 fd78 	bl	8001100 <HAL_GPIO_ReadPin>
- 8000610:	4603      	mov	r3, r0
- 8000612:	2b01      	cmp	r3, #1
- 8000614:	d106      	bne.n	8000624 <main+0x14c>
+ 8000600:	f44f 7100 	mov.w	r1, #512	; 0x200
+ 8000604:	483c      	ldr	r0, [pc, #240]	; (80006f8 <main+0x220>)
+ 8000606:	f000 fd7b 	bl	8001100 <HAL_GPIO_ReadPin>
+ 800060a:	4603      	mov	r3, r0
+ 800060c:	2b01      	cmp	r3, #1
+ 800060e:	d106      	bne.n	800061e <main+0x146>
 					HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, GPIO_PIN_RESET);
- 8000616:	2200      	movs	r2, #0
- 8000618:	f44f 7100 	mov.w	r1, #512	; 0x200
- 800061c:	4836      	ldr	r0, [pc, #216]	; (80006f8 <main+0x220>)
- 800061e:	f000 fd87 	bl	8001130 <HAL_GPIO_WritePin>
- 8000622:	e005      	b.n	8000630 <main+0x158>
+ 8000610:	2200      	movs	r2, #0
+ 8000612:	f44f 7100 	mov.w	r1, #512	; 0x200
+ 8000616:	4838      	ldr	r0, [pc, #224]	; (80006f8 <main+0x220>)
+ 8000618:	f000 fd8a 	bl	8001130 <HAL_GPIO_WritePin>
+ 800061c:	e005      	b.n	800062a <main+0x152>
 				} else {
 					HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, GPIO_PIN_SET);
- 8000624:	2201      	movs	r2, #1
- 8000626:	f44f 7100 	mov.w	r1, #512	; 0x200
- 800062a:	4833      	ldr	r0, [pc, #204]	; (80006f8 <main+0x220>)
- 800062c:	f000 fd80 	bl	8001130 <HAL_GPIO_WritePin>
+ 800061e:	2201      	movs	r2, #1
+ 8000620:	f44f 7100 	mov.w	r1, #512	; 0x200
+ 8000624:	4834      	ldr	r0, [pc, #208]	; (80006f8 <main+0x220>)
+ 8000626:	f000 fd83 	bl	8001130 <HAL_GPIO_WritePin>
 				}
 
-			}
+				if (d == 0) {
+ 800062a:	7d7b      	ldrb	r3, [r7, #21]
+ 800062c:	2b00      	cmp	r3, #0
+ 800062e:	d12d      	bne.n	800068c <main+0x1b4>
 			if ((HAL_GetTick() - TimeStamp11 >= LED3_QuadPeriod)
  8000630:	f000 faf2 	bl	8000c18 <HAL_GetTick>
  8000634:	4602      	mov	r2, r0
@@ -652,6 +652,7 @@ int main(void) {
  8000688:	f000 fd52 	bl	8001130 <HAL_GPIO_WritePin>
 
 			}
+				}
 		}
 		if (d == 1) {
  800068c:	7d7b      	ldrb	r3, [r7, #21]

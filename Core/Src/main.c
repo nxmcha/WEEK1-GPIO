@@ -153,7 +153,7 @@ int main(void) {
 			}
 			SwitchState3[1] = SwitchState3[0];
 		}
-		if (d == 0) {
+
 			if (HAL_GetTick() - TimeStamp >= LED1_HalfPeriod) {
 				TimeStamp = HAL_GetTick();
 				//Toggle LED1
@@ -163,7 +163,7 @@ int main(void) {
 					HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, GPIO_PIN_SET);
 				}
 
-			}
+				if (d == 0) {
 			if ((HAL_GetTick() - TimeStamp11 >= LED3_QuadPeriod)
 					&& (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_6) == GPIO_PIN_RESET)) {
 				TimeStamp11 = HAL_GetTick();
@@ -180,6 +180,7 @@ int main(void) {
 				HAL_GPIO_WritePin(GPIOB, GPIO_PIN_6, GPIO_PIN_RESET);
 
 			}
+				}
 		}
 		if (d == 1) {
 
